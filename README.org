@@ -1,0 +1,91 @@
+#+TITLE: Discord Bot
+#+AUTHOR: Sylvain Hunault
+#+EMAIL: jahaash@gmail.com
+
+This project is a proof of concept of a discord bot that highlights basic functionalities.
+
+The README contains the following information:
+- setup steps
+- steps to create a discord application and bot via =https://discord.com/developers/applications=
+- how to configure the bot and some comments on it
+- how to setup on a Raspberry Pi
+Then comments within the code should be self explanatory.
+
+* Environment Setup
+** Requirements
+The project was done with Python =3.9.0=. The Python packages are
+listed in the file =requirements.txt=. As of now they are:
+ #+BEGIN_SRC
+ aiohttp==3.6.3
+ async-timeout==3.0.1
+ attrs==20.2.0
+ chardet==3.0.4
+ discord==1.0.1
+ discord.py==1.5.1
+ emoji==0.6.0
+ idna==2.10
+ multidict==4.7.6
+ yarl==1.5.1
+ #+END_SRC
+ Which is the result of only installing =discord= and =emoji=.
+** Steps
+Instal =pyenv= (see 'https://github.com/pyenv/pyenv'). For Ubuntu in short:
+- Dependencies:
+  #+BEGIN_SRC sh
+  $sudo apt-get install -y make build-essential libssl-dev zlib1g-dev \
+  libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
+  libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl
+  #+END_SRC
+- Use pyenv installer:
+  #+BEGIN_SRC sh
+  $curl https://pyenv.run | bash
+  #+END_SRC
+- Add the following in your =.bashrc=:
+  #+BEGIN_SRC sh
+  export PATH="$HOME/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+  #+END_SRC
+- Install Python with =pyenv=:
+  #+BEGIN_SRC sh
+  $pyenv install -v 3.9.0
+  #+END_SRC
+- Create a virtual environment for the project, use it locally  and configure it:
+  #+BEGIN_SRC sh
+  $pyenv virtualenv 3.9.0 discord-bot
+  $pyenv local discord-bot
+  $pip install -r requirements.txt
+  #+END_SRC
+Your environment in now ready!
+
+* How to create your discord application
+- First of all go to 'https://discord.com/developers/applications' and sign in.
+- Select =New Application=, name it and select =Create=
+- Your newly created application should appears in the list of applications,
+  select it to start configuring it
+- On the left menu, select =Bot= then in the new page =Add Bot=.
+- You can find on that page that the bot has a token. It will be used by the
+  script =main.py=. Never reveal it as it can be use to compromise your bot.
+- To add your bot to your server head to =OAuth2=
+- In =scopes= select =bot=, then select the permissions you want your bot
+  will need. Once done, copy the generated link below, open a new tab in your
+  browser and paste that link. The link will allow you to invite your bot
+  with the selected permissions to the server you select (given you have that
+  access on the server).
+
+* Enable Discord developer mode
+To go further in setting up a bot, you will need to enable the developer mode
+of Discord: it will allow to copy server id, channel id, message id, etc.
+- Open the settings with the little cogwheel next to your username in the
+  discord application
+- In =Appearance=, scroll down and enable the developer mode. Tadaa, you are
+  now a developer!
+
+* Configure the bot
+
+* Sources
+Other sources used to do this project:
+- Guide for pyenv: 'https://realpython.com/intro-to-pyenv/'
+- Discord Python API: 'https://discordpy.readthedocs.io/en/latest/'
+- Discord Python examples (not all are up to date):
+  'https://github.com/Rapptz/discord.py/tree/master/examples'
