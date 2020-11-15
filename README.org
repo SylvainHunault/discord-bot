@@ -76,7 +76,8 @@ Your environment in now ready!
 
 * Enable Discord developer mode
 To go further in setting up a bot, you will need to enable the developer mode
-of Discord: it will allow to copy server id, channel id, message id, etc.
+of Discord: it allows to copy the ID of multiple entities (server, channel,
+message, etc.)
 - Open the settings with the little cogwheel next to your username in the
   discord application
 - In =Appearance=, scroll down and enable the developer mode. Tadaa, you are
@@ -125,19 +126,17 @@ the code:
  ROLE_B_ID=#Role B ID
  #+END_SRC
 You have now configured the project and it is ready to be started!
-
 * Start the bot
 To start the bot:
 - Make sure you configured the server accordingly to test it.
-- Make sure you added it to your server according to the section
-=Add the bot to a server= (it should appear amongst the members and offline)
+- Make sure you added it to your server according to the section =Add the bot to a server= (it should appear amongst the members and offline)
 - Start the bot with =python main.py=.
 - The bot should now be online and great you with messages.
 ** Deploy the bot on a Raspberry Pi
 There is nothing complex to deploy the bot on a Raspberry Pi. It needs the
 same environment as described in =Environment Setup=. You don't need a screen
 and can access your Raspberry Pi via SSH.
-
+* The End
 Hope you liked that little project to demonstrate bot capabilities on Discord
 with Python. There are other ways to make a bot. The discord Python library
 may change, etc. It won't stay true over time unless I update it.
