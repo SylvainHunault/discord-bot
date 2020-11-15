@@ -12,7 +12,7 @@ from datetime import date
 ## Write message that will auto delete
 ### await channel.send("Hello I will auto delete myselff in 5 seconds!", delete_after=5.0)
 
-VERSION = "0.1.3"
+VERSION = "1.0.0"
 HELP_MSG = """
 this is a help message
 """
@@ -97,7 +97,7 @@ class MyClient(discord.Client):
         channel = self.get_channel(GENERAL_CHANNEL_ID)
         await channel.send(EMOJI_TEST+" {t}".format(t=time))
         if(weekday==5):
-            await channel.send("Today is Saturyday! Yeah!")
+            await channel.send("Today is Saturday! Yeah!")
 
     @my_background_task.before_loop
     async def my_background_task_before(self):

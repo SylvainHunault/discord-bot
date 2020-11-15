@@ -62,16 +62,17 @@ Your environment in now ready!
 - First of all go to 'https://discord.com/developers/applications' and sign in.
 - Select =New Application=, name it and select =Create=
 - Your newly created application should appears in the list of applications,
-  select it to start configuring it
+  select it to start configuring it.
 - On the left menu, select =Bot= then in the new page =Add Bot=.
 - You can find on that page that the bot has a token. It will be used by the
   script =main.py=. Never reveal it as it can be use to compromise your bot.
-- To add your bot to your server head to =OAuth2=
+- To add your bot to your server head to section =OAuth2=.
+** Add the bot a server
 - In =scopes= select =bot=, then select the permissions you want your bot
-  will need. Once done, copy the generated link below, open a new tab in your
-  browser and paste that link. The link will allow you to invite your bot
-  with the selected permissions to the server you select (given you have that
-  access on the server).
+  will need. At the bottom of =scopes=, an URI is available at the bottom, copy
+  it, open a new tab in your browser with it. It  will bring a page to allow you
+  to invite your bot to the server you select (given you have the  permissions
+  and access to the server) with the persmissions you selected.
 
 * Enable Discord developer mode
 To go further in setting up a bot, you will need to enable the developer mode
@@ -80,12 +81,71 @@ of Discord: it will allow to copy server id, channel id, message id, etc.
   discord application
 - In =Appearance=, scroll down and enable the developer mode. Tadaa, you are
   now a developer!
+- This will allow you to get the ID of different entities with a right click
+  (channel, user, etc.) which you will use to configure your bot.
 
 * Configure the bot
+** Bot token
+First of all, in your discord developers page, go to the section =Bot=. Here
+you can select a avatar picture for your bot. Most importantly, you can get
+the bot token. This token is what will make the link between the python
+script and the bot. At the end of =main.py=, the token is given to the function
+=client.run(<token>)=.
+For this little project, the token is in a file =token.txt= at the root of
+the project. Copy and paste your token in that file. Remember DO NOT publish
+this token as it may compromise your bot. If you think it has been
+compromised, you can always regenerate it.
+** Channel IDs, role IDs
+Remember, this is a proof of concept and it does not achieve anything
+particular. To test it, you can create a server for yourself with 2 text
+channels and 2 roles (A and B). You will use one channel to test the bot's
+commands and the other to test the role management via emoji.
+Test server structure:
+ #+BEGIN_SRC
+ Server:
+ - Text channels
+ | - General (to test chat commands and background task)
+ | - Role management
+ - Roles
+ | - Role A
+ | - Role B
+ #+END_SRC
+- To get a text channel ID, just right click on it.
+- To get a role ID, go to the =Roles= section in the server configuration and
+  right click on it.
+- To get a server ID, right click on it in your server list on the left.
+Copy the IDs of those 2 channels and roles and paste them at that place in
+the code:
+ #+BEGIN_SRC
+ GENERAL_CHANNEL_ID=#Text channel ID for background task (1 message per minute)
+ and bot commands
+ ROLE_MANAGEMENT_CHANNEL_ID=#Text channel ID for role management via emoji
+ GUILD_ID=#Server ID
+ ROLE_A_ID=#Role A ID
+ ROLE_B_ID=#Role B ID
+ #+END_SRC
+You have now configured the project and it is ready to be started!
+
+* Start the bot
+To start the bot:
+- Make sure you configured the server accordingly to test it.
+- Make sure you added it to your server according to the section
+=Add the bot to a server= (it should appear amongst the members and offline)
+- Start the bot with =python main.py=.
+- The bot should now be online and great you with messages.
+** Deploy the bot on a Raspberry Pi
+There is nothing complex to deploy the bot on a Raspberry Pi. It needs the
+same environment as described in =Environment Setup=. You don't need a screen
+and can access your Raspberry Pi via SSH.
+
+Hope you liked that little project to demonstrate bot capabilities on Discord
+with Python. There are other ways to make a bot. The discord Python library
+may change, etc. It won't stay true over time unless I update it.
+Cheers!
 
 * Sources
 Other sources used to do this project:
 - Guide for pyenv: 'https://realpython.com/intro-to-pyenv/'
 - Discord Python API: 'https://discordpy.readthedocs.io/en/latest/'
 - Discord Python examples (not all are up to date):
-  'https://github.com/Rapptz/discord.py/tree/master/examples'
+- 'https://github.com/Rapptz/discord.py/tree/master/examples'
