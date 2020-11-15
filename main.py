@@ -38,10 +38,10 @@ class MyClient(discord.Client):
         return m.author == self.user
 
     async def on_ready(self):
-        print("Ready roaaarrr!")
-        print('Logged in as')
-        print(self.user.name)
-        print(self.user.id)
+        print("Ready!")
+        print("Logged in as")
+        print("Name: "+ self.user.name)
+        print("User ID: {i}".format(i=self.user.id))
         print('------')
         # Remove messages in the channel ROLE_MANAGEMENT, write a message and give it 2 reactions
         channel = self.get_channel(ROLE_MANAGEMENT_CHANNEL_ID)
