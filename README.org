@@ -129,7 +129,9 @@ You have now configured the project and it is ready to be started!
 * Start the bot
 To start the bot:
 - Make sure you configured the server accordingly to test it.
-- Make sure you added it to your server according to the section =Add the bot to a server= (it should appear amongst the members and offline)
+- Make sure you added it to your server according to the section of this
+  README =Add the bot to a server=: once added to a server, the bot should
+  appear amongst the members and offline)
 - Start the bot with =python main.py=.
 - The bot should now be online and great you with messages.
 ** Deploy the bot on a Raspberry Pi
