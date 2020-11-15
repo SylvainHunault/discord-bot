@@ -140,13 +140,15 @@ same environment as described in =Environment Setup=. You don't need a screen
 and can access your Raspberry Pi via SSH.
 * The End
 Hope you liked that little project to demonstrate bot capabilities on Discord
-with Python. There are other ways to make a bot. The discord Python library
-may change, etc. It won't stay true over time unless I update it.
+with Python. Bare in mind, there are other ways to make a bot and the discord
+Python library may changes that could make this code obsolete.
+
+Feel free to fork it and start playing around yourself.
 Cheers!
 
 * Sources
 Other sources used to do this project:
-- Guide for pyenv: 'https://realpython.com/intro-to-pyenv/'
-- Discord Python API: 'https://discordpy.readthedocs.io/en/latest/'
-- Discord Python examples (not all are up to date):
-- 'https://github.com/Rapptz/discord.py/tree/master/examples'
+- Guide for pyenv: https://realpython.com/intro-to-pyenv/
+- Discord Python API: https://discordpy.readthedocs.io/en/latest/
+Discord Python examples (not all are up to date):
+- https://github.com/Rapptz/discord.py/tree/master/examples
